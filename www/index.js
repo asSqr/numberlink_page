@@ -70,17 +70,21 @@ Promise.all([wasm]).then(async function([{ parse_url, solve_numberlink }]) {
   
       if( field[i][j] != 0 ) {
         ctx.font = "normal 30px 'Yu Gothic'";
-        R.string(ctx, x+s/2-8, y+s/2+12, field[i][j] );
+
+        if( field[i][j] < 10 )
+          R.string(ctx, x+s/2-8, y+s/2+12, field[i][j] );
+        else
+          R.string(ctx, x+s/2-17, y+s/2+12, field[i][j] );
       }
     }
   
     const calc = i => pad + s*i + s/2;
   
     for( const arc of sol ) {
-      ctx.strokeStyle = 'rgb(40,40,40)';
+      ctx.strokeStyle = `rgb(40,40,40)`;
       ctx.lineWidth = 2;
 
-      R.line( ctx, calc(arc[0][0]), calc(arc[0][1]), calc(arc[1][0]), calc(arc[1][1]) );
+      R.line( ctx, calc(arc[0][1]), calc(arc[0][0]), calc(arc[1][1]), calc(arc[1][0]) );
     }
   } 
 });
