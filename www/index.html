@@ -5,7 +5,11 @@
     <title>Hello wasm-pack!</title>
   </head>
   <body>
-    <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
     <script src="./bootstrap.js"></script>
+    <noscript>This page contains webassembly and javascript content, please enable javascript in your browser.</noscript>
+    <label>ぱずぷれ URL を入力してください: </label><br/>
+    <input id="url-box" type="text"/>
+    <button id="button" onclick="click_handler()">Loading...</button>
+    <canvas id="canvas" width="640" height="480"></canvas>
   </body>
 </html>
